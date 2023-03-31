@@ -1,0 +1,29 @@
+version: 1
+formatters:
+  simple:
+    format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+handlers:
+  console:
+    class: logging.StreamHandler
+    level: DEBUG
+    formatter: simple
+    stream: ext://sys.stdout
+  file:
+    # This will make files that rotate out slowly.
+    class: logging.handlers.RotatingFileHandler
+    level: DEBUG
+    formatter: simple
+    # The name of the file with backups appended by the number e.g. rotating.log.1
+    filename: rotating.log
+    # The maximum size of the file before it rotates.
+    maxBytes: 1024
+    # The number of backups to keep.
+    backupCount: 3
+loggers:
+  exampleLogger:
+    level: DEBUG
+    handlers: [console, file]
+    propagate: no
+root:
+  level: DEBUG
+  handlers: [console]
