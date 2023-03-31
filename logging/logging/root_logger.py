@@ -54,9 +54,12 @@ if __name__ == "__main__":
 
     logger = logging.getLogger("mylogger")
 
-    # Though this has to be done before any logging is done, otherwise it will use the
-    # default logger.
+    logger.warning("This is a warning message.")
 
-    logging.warning("This is a warning message.")
+    # The levels are actually given by integers:
 
-
+    print("Debug", logging.DEBUG)
+    print("Info", logging.INFO)
+    print("Warning", logging.WARNING)
+    print("Error", logging.ERROR)
+    print("Critical", logging.CRITICAL)
